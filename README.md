@@ -73,7 +73,7 @@ Für die Verwaltung der Infrastruktur von einer Windows-Arbeitsstation aus nutze
   ### 3. VS Code Erweiterung einrichten
   Installation der offiziellen **HashiCorp Terraform** Erweiterung für Syntax-Highlighting und Autovervollständigung:
 
-  ![VS Code Terraform Extension](images/terraform/Extension_terraform.png)
+  ![VS Code Terraform Extension](images/terraform/extension_terraform.png)
 
   ### 4. Einrichtung des WSL Ubuntu Control Nodes
   Um Ansible unter Windows zu nutzen, richten wir das Windows Subsystem for Linux (WSL) ein:
