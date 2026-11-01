@@ -1,0 +1,50 @@
+# =========================================================================
+# 1. Terraform Configuration
+# =========================================================================
+
+**/.terraform/
+.terraform/
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/*.tfstate
+**/*.tfstate.*
+**/*.tfvars
+**/*.tfvars.json
+**/crash.log
+**/*tfplan*
+**/.terraform.lock.hcl
+!**/terraform.tfvars.example
+
+# =========================================================================
+# 2. Ansible Configuration & Secrets
+# =========================================================================
+
+**/.ansible/
+**/*.retry
+**/ansible.log
+**/.vault_password
+**/*vault*password*
+**/secrets.yml
+**/credentials.yml
+
+# =========================================================================
+# 3. SSH Keys & Security Credentials
+# =========================================================================
+
+**/*.pem
+**/id_rsa
+**/id_rsa.pub
+**/*.key
+**/*.pub
+
+# =========================================================================
+# 4. System & Editor Files (Windows, Mac, VS Code)
+# =========================================================================
+
+**/.vscode/
+**/.idea/
+.DS_Store
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+*~

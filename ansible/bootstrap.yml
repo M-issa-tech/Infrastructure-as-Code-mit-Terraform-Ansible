@@ -1,0 +1,55 @@
+---
+- name: Enterprise Bootstrap & Base Layer Setup
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update apt cache and upgrade system (Debian/Ubuntu VMs & LXCs)
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: safe
+        lock_timeout: 300
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Upgrade system packages (CentOS Stream)
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Ensure EPEL repository is enabled (CentOS Stream)
+      ansible.builtin.dnf:
+        name: epel-release
+        state: present
+        update_cache: true
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Install common packages on all nodes
+      ansible.builtin.package:
+        name: "{{ common_packages }}"
+        state: present
+
+    - name: Install Ubuntu specific packages
+      ansible.builtin.package:
+        name: "{{ ubuntu_packages }}"
+        state: present
+      when: inventory_hostname in groups['ubuntu_vms']
+
+    - name: Install CentOS specific packages
+      ansible.builtin.package:
+        name: "{{ centos_packages }}"
+        state: present
+      when: inventory_hostname in groups['centos_vms']
+
+    - name: Ensure fail2ban is installed and running on VMs
+      ansible.builtin.package:
+        name: fail2ban
+        state: present
+      when: inventory_hostname in groups['vms']
+
+    - name: Start and enable fail2ban service on VMs
+      ansible.builtin.service:
+        name: fail2ban
+        state: started
+        enabled: yes
+      when: inventory_hostname in groups['vms']

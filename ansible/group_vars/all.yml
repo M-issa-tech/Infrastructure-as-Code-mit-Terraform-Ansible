@@ -1,0 +1,10 @@
+---
+common_packages:
+  - curl
+  - wget
+  - git
+  - htop
+  - tmux
+  - rsync
+  - tar
+  - unzip

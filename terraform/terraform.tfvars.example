@@ -1,0 +1,4 @@
+proxmox_api_token = "DEIN_TOKEN_HIER"
+
+
+ssh_public_key    = "DEIN_SSH_PUBLIC_KEY_HIER"

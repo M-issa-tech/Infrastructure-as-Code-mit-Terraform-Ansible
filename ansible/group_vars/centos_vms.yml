@@ -1,0 +1,7 @@
+---
+centos_packages:
+  - vim-enhanced
+  - firewalld
+  - qemu-guest-agent
+
+ansible_python_interpreter: /usr/bin/python3.9

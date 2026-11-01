@@ -1,0 +1,8 @@
+---
+ubuntu_packages:
+  - vim-nox
+  - ufw
+  - qemu-guest-agent
+  
+# Fester Python-Interpreter, um Warnungen zu vermeiden
+ansible_python_interpreter: /usr/bin/python3.10

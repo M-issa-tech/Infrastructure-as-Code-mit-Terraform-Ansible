@@ -1,0 +1,10 @@
+---
+# 1. Führt immer zuerst das Basis-Setup & Updates aus
+- import_playbook: bootstrap.yml
+
+# 2. Hier werden im späteren Prometheus/Grafana-Projekt die Rollen ergänzt:
+# - hosts: monitoring
+#   become: true
+#   roles:
+#     - role: prometheus
+#     - role: grafana
